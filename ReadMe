@@ -1,0 +1,15 @@
+Within the following folder "WM-2 Smart Grasping" you will find 16 files that are all required to run the code.
+
+On top of the 16 files you will need to install the following toolboxes on Matlab to run the code:
+
+Robotics System Toolbox - https://www.mathworks.com/help/robotics/index.html
+Model Predictive Control Toolbox - https://www.mathworks.com/help/mpc/index.html
+Optimization Toolbox - https://www.mathworks.com/help/optim/index.html
+Stateflow - https://www.mathworks.com/help/stateflow/index.html
+
+*The attached links will take you to the documentation for the toolboxes, not the download page*
+How to install Matlab Toolboxes - https://www.mathworks.com/videos/add-on-explorer-106745.html
+
+Inside the folder you can also find a file named "SetUp". This file does not need to be downloaded, or
+installed. This text file has the command you must run after installing the program to make the program
+begin its execution. The entire block of commands can be directly copied and pasted in the console.
