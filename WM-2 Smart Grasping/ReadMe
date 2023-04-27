@@ -1,1 +1,20 @@
-PlaceHolder
+load('HelperKINOVAGen3GripperColl.mat'); 
+currentRobotJConfig = homeConfiguration(robot);
+coordinator = HelperCoordinatorPickPlace(robot,currentRobotJConfig, "gripper");
+coordinator.HomeRobotTaskConfig = trvec2tform([0.4, 0, 0.6])*axang2tform([0 1 0 pi]);
+coordinator.PlacingPose{1} = trvec2tform([0.23 0.62 0.33])*axang2tform([0 1 0 pi]);
+coordinator.PlacingPose{2} = trvec2tform([0.23 -0.62 0.33])*axang2tform([0 1 0 pi]);
+coordinator.FlowChart = HelperFlowChartPickPlace('coordinator', coordinator); 
+answer = questdlg('Do you want to start the pick-and-place job now?', ...
+         'Start job','Yes','No', 'No');
+
+switch answer
+    case 'Yes'
+        % Trigger event to start Pick and Place in the Stateflow Chart
+        coordinator.FlowChart.startPickPlace;        
+    case 'No'
+        % End Pick and Place
+        coordinator.FlowChart.endPickPlace;        
+        delete(coordinator.FlowChart);
+        delete(coordinator);
+end
